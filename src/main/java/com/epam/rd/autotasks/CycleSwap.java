@@ -16,9 +16,7 @@ class CycleSwap {
 
                 changed[0] = array[length - 1];
 
-                for(int i = 0; i < length; i++){
-                    array[i] = changed[i];
-                }
+                System.arraycopy(changed, 0, array, 0, length);
             }
         }
     }
@@ -28,7 +26,7 @@ class CycleSwap {
             int length = array.length;
             int[] changed = new int[length];
             if(shift >= length) {
-                int index = 0;
+                int index;
                 for (int i = 0; i < length; i++) {
                     index = (shift - (length - i)) % length;
                     changed[index] = array[i];
@@ -43,9 +41,7 @@ class CycleSwap {
                     changed[i] = array[j];
                 }
             }
-            for(int i = 0; i < length; i++){
-                array[i] = changed[i];
-            }
+            System.arraycopy(changed, 0, array, 0, length);
         }
         }
         }
